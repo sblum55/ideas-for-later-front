@@ -1,19 +1,21 @@
 import { Link } from 'react-router-dom'
+import { useContext } from 'react'
+import { UserContext } from '../contexts/UserContexts'
 
 const NavBar = (props) => {
-    const auth = localStorage.getItem('userId')
+    const [ user, setUser ] = useContext(UserContext)
     // console.log(props);
     return (
         <div className = 'navBar'>
-            {auth ? <>
+            {user.id ? <>
             <span className = 'homeBtn'>
             <Link className = 'navLink' to = '/'>
                 HOME
             </Link>
             </span>
-            <span className = 'newWine'>
-            <Link className = 'navLink' to = '/new'>
-                POST A WINE
+            <span className = 'myIdea'>
+            <Link className = 'navLink' to = '/ideas'>
+                My Ideas
             </Link>
             </span>
             <span className = 'deleteBtn'>
