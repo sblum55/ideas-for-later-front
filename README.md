@@ -18,19 +18,17 @@ Ideas for later will let users save picture ideas for projects, recipes, diy and
 
 ## Wireframes:
 #### Home - logged out
-![home-logged-out-screen](./Wireframes/home-logged-out.jpg)
+![home-logged-out-screen](./wireframes/home-logged-out.jpg)
 #### Home - logged in
-![home-logged-out-screen](./Wireframes/home-logged-in.jpg)
+![home-logged-out-screen](./wireframes/home-logged-in.jpg)
 #### Log-in form
-![log-in-form](./Wireframes/log-in.jpg)
+![log-in-form](./wireframes/log-in.jpg)
 #### Sign up form
-![sign-up-form](./Wireframes/Sign-up.jpg)
+![sign-up-form](./wireframes/sign-up.jpg)
 #### My Idea page
-![idea-page](./Wireframes/idea-page.jpg)
-#### My Idea - category(stretch)
-![idea-page-category](./Wireframes/idea-category.jpg)
+![idea-page](./wireframes/my-ideas.jpg)
 #### Add Idea Form
-![add-idea-form](./Wireframes/add-idea.jpg)
+![add-idea-form](./wireframes/add-idea.jpg)
 
 ## ERD
 ![erd](./ERD.jpg)
