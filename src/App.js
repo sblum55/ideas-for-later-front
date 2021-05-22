@@ -6,6 +6,7 @@ import { UserContext } from './contexts/UserContexts'
 
 import NavBar from './components/NavBar'
 import SignUp from './pages/SignUp'
+import Home from './pages/Home'
 
 function App() {
   const [ user, setUser ] = useContext(UserContext)
@@ -14,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-
+      <Home exact path = '/' />
       <Route exact path = '/signup' render={() => {
         if (user.id) {
           return <Redirect to = '/'/>

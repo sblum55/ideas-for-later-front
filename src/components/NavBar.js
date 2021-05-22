@@ -7,16 +7,18 @@ const NavBar = (props) => {
     // console.log(props);
     return (
         <div className = 'navBar'>
+            <div className = 'homeBtnArea'>
+                <span className = 'homeBtn'>
+                    <Link className = 'navLink' to = '/'>
+                        HOME
+                    </Link>
+                </span>
+            </div>
             {user.id ? <>
-            <span className = 'homeBtn'>
-            <Link className = 'navLink' to = '/'>
-                HOME
-            </Link>
-            </span>
             <span className = 'myIdea'>
-            <Link className = 'navLink' to = '/ideas'>
-                My Ideas
-            </Link>
+                <Link className = 'navLink' to = '/ideas'>
+                    My Ideas
+                </Link>
             </span>
             <span className = 'deleteBtn'>
             <span className = 'delete' onClick = {() => {

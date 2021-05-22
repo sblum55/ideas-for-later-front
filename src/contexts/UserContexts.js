@@ -19,7 +19,7 @@ const UserProvider = (props) => {
         })
     }
 
-    console.log(user);
+    // console.log(user);
 
     useEffect(fetchUser, [])
 
