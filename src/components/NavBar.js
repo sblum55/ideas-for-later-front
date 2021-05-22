@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { UserContext } from '../contexts/UserContexts'
 
-const NavBar = (props) => {
+const NavBar = () => {
     const [ user, setUser ] = useContext(UserContext)
-    // console.log(props);
+    console.log(user);
     return (
         <div className = 'navBar'>
             <div className = 'homeBtnArea'>
@@ -24,7 +24,7 @@ const NavBar = (props) => {
                 <span className = 'logOutBtn'>
                 <span className = 'logOut' onClick = {() => {
                     localStorage.removeItem('userId')
-                    props.setUser({})
+                    setUser({})
                 }}>Logout</span>
                 </span>
             </div>
