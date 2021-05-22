@@ -14,7 +14,7 @@ const NavBar = (props) => {
                     </Link>
                 </span>
             </div>
-            {user.id ? <>
+            {user ? <>
             <span className = 'myIdea'>
                 <Link className = 'navLink' to = '/ideas'>
                     My Ideas
