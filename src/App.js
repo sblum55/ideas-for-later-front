@@ -34,12 +34,12 @@ function App() {
         if (user) {
           return <Redirect to = '/'/>
         } else {
-          return<Login />
+          return <Login />
         }
       }} />
       
     </div>
-  );
+  )
 }
 
 export default App;
