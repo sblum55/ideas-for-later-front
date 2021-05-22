@@ -17,7 +17,7 @@ const Home = () => {
     useEffect(getIdeas, [])
 
     return (
-        <div className = 'ideaContainer'>
+        <div className = 'container'>
             <IdeaList ideas = {ideas} />
         </div>
     )
