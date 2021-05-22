@@ -23,7 +23,7 @@ function App() {
       </Route>
 
       <Route exact path = '/signup' render={() => {
-        if (user.id) {
+        if (user) {
           return <Redirect to = '/'/>
         } else {
           return<SignUp />
@@ -31,7 +31,7 @@ function App() {
       }} />
 
       <Route exact path = '/login' render={() => {
-        if (user.id) {
+        if (user) {
           return <Redirect to = '/'/>
         } else {
           return<Login />
