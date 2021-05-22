@@ -9,23 +9,25 @@ const NavBar = (props) => {
         <div className = 'navBar'>
             <div className = 'homeBtnArea'>
                 <span className = 'homeBtn'>
-                    <Link className = 'navLink' to = '/'>
-                        HOME
+                    <Link className = 'navLinkHome' to = '/'>
+                        Ideas For Later
                     </Link>
                 </span>
             </div>
             {user ? <>
-            <span className = 'myIdea'>
-                <Link className = 'navLink' to = '/ideas'>
-                    My Ideas
-                </Link>
-            </span>
-            <span className = 'deleteBtn'>
-            <span className = 'delete' onClick = {() => {
-                localStorage.removeItem('userId')
-                props.setUser({})
-            }}>LOGOUT</span>
-            </span>
+            <div className = 'rightNavArea'>
+                <span className = 'myIdea'>
+                    <Link className = 'navLink' to = '/ideas'>
+                        My Ideas
+                    </Link>
+                </span>
+                <span className = 'logOutBtn'>
+                <span className = 'logOut' onClick = {() => {
+                    localStorage.removeItem('userId')
+                    props.setUser({})
+                }}>Logout</span>
+                </span>
+            </div>
             </>
              :
              <>
