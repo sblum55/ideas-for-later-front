@@ -22,7 +22,7 @@ const SignUp = () => {
 
     return (
         <div>
-            <h1>Join the Fun Here!!</h1>
+            <h1>Access our selection of great ideas!</h1>
             <form onSubmit = {handleSubmit}>
                 <div className = 'nameArea'>
                     <div>
