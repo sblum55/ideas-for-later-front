@@ -17,7 +17,6 @@ const SignUp = () => {
             setUser(response.data.user.id)
             localStorage.setItem('userId', response.data.user.id)
         })
-        console.log(user);
     }
 
     return (

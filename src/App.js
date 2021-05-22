@@ -11,6 +11,7 @@ import Home from './pages/Home'
 
 function App() {
   const [ user, setUser ] = useContext(UserContext)
+  console.log('app.js user', user);
 
 
   return (
