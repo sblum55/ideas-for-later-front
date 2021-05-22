@@ -9,7 +9,7 @@ const UserProvider = (props) => {
     const fetchUser = () => {
         if (!localStorage.getItem('userId')) {return}
 
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/user/verify`, {
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}user/verify`, {
             headers: {
                 Authorization: localStorage.getItem('userId')
             }
@@ -18,6 +18,8 @@ const UserProvider = (props) => {
             setUser(response.data.user)
         })
     }
+
+    console.log(user);
 
     useEffect(fetchUser, [])
 
