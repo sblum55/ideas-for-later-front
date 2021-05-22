@@ -24,7 +24,7 @@ const NavBar = () => {
                 <span className = 'logOutBtn'>
                 <span className = 'logOut' onClick = {() => {
                     localStorage.removeItem('userId')
-                    setUser({})
+                    setUser(null)
                 }}>Logout</span>
                 </span>
             </div>

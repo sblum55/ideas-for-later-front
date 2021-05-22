@@ -45,3 +45,13 @@ body {
   color: white;
   font-weight: bold;
 }
+
+.ideaContainer {
+  border: 2px solid blue;
+  height: 1000px;
+}
+
+.ideaCard {
+  border: 2px solid green;
+  height: 100px;
+}

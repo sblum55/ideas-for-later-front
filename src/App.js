@@ -11,7 +11,7 @@ import Home from './pages/Home'
 
 function App() {
   const [ user, setUser ] = useContext(UserContext)
-  // console.log('app.js user', user);
+  
 
 
   return (
@@ -30,6 +30,10 @@ function App() {
         }
       }} />
 
+      {/* <Route exact path= '/signup'>
+        <SignUp />
+      </Route> */}
+
       <Route exact path = '/login' render={() => {
         if (user) {
           return <Redirect to = '/'/>
@@ -37,6 +41,9 @@ function App() {
           return <Login />
         }
       }} />
+      {/* <Route exact path = '/login'>
+         <Login />
+      </Route> */}
       
     </div>
   )
