@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 const IdeaList = (props) => {
-    console.log(props.ideas);
+    // console.log(props.ideas);
 
     return (
         <div className= 'ideaContainer'>

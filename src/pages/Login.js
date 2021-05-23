@@ -12,31 +12,29 @@ const Login = () => {
         e.preventDefault()
         axios.post(`${process.env.REACT_APP_BACKEND_URL}users/login`, {email, password})
         .then((response) => {
-            console.log('login response', response);
+            // console.log('login response', response);
             setUser(response.data.user.id)
             localStorage.setItem('userId', response.data.user.id)
         })
     }
     return (
         <div>
-            <h1>Log in for all your ideas and more!</h1>
-            <form onSubmit = {handleSubmit}>
-                <div className = 'emailArea'>
-                    <div>
-                    <label htmlFor = 'new-email'>Email </label>
+            <div className = 'loginFormContainer'>
+                <form onSubmit = {handleSubmit}>
+                    <div className = 'loginTitle'>
+                        <h1>Welcome to Ideas for Later!</h1>
                     </div>
-                    <input className = 'loginInput' id = 'new-email' value = {email} onChange = {(e) => {setEmail(e.target.value)}} />
-                </div>
-                <div className = 'passwordArea'>
-                    <div>
-                    <label htmlFor = 'new-password'>Password </label>
+                    <div className = 'emailArea'>
+                        <input className = 'loginInput' placeholder = 'Email' id = 'new-email' value = {email} onChange = {(e) => {setEmail(e.target.value)}} />
                     </div>
-                    <input className = 'loginInput' type = 'password' id = 'new-password' value = {password} onChange = {(e) => {setPassword(e.target.value)}} />
-                </div>
-                <div className = 'signUpBtnArea'>
-                    <input className = 'loginBtn' type = 'submit' value = 'SUBMIT' />
-                </div>
-            </form>
+                    <div className = 'passwordArea'>
+                        <input className = 'loginInput' placeholder = 'Password' type = 'password' id = 'new-password' value = {password} onChange = {(e) => {setPassword(e.target.value)}} />
+                    </div>
+                    <div className = 'signUpBtnArea'>
+                        <input className = 'submitLoginBtn' type = 'submit' value = 'SUBMIT' />
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

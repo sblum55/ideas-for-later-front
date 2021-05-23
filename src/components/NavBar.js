@@ -4,7 +4,9 @@ import { UserContext } from '../contexts/UserContexts'
 
 const NavBar = () => {
     const [ user, setUser ] = useContext(UserContext)
-    console.log(user);
+    // const { userState } = useContext(UserContext)
+    // const [ user, setUser] = userState
+    // console.log(user);
     return (
         <div className = 'navBar'>
             <div className = 'homeBtnArea'>
@@ -31,12 +33,18 @@ const NavBar = () => {
             </>
              :
              <>
-            <Link className = 'navLink' to = '/signup'>
-                SIGN UP
-            </Link>{ ' | '}
-            <Link className = 'navLink' to = '/login'>
-                LOGIN
-            </Link>
+             <div className = 'rightNavArea'>
+                 <span className = 'signUpBtn'>
+                    <Link className = 'navLink' to = '/signup'>
+                        SIGN UP
+                    </Link>   
+                 </span>
+                 <span className= 'loginBtn'>
+                    <Link className = 'navLink' to = '/login'>
+                        LOGIN
+                    </Link>
+                 </span>
+             </div>
              </>
             
          }

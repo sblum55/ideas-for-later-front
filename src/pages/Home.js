@@ -8,7 +8,7 @@ const Home = () => {
     const getIdeas = () => {
         axios.get(`${process.env.REACT_APP_BACKEND_URL}ideas`)
         .then((response) => {
-            console.log('home response', response);
+            // console.log('home response', response);
             setIdeas(response.data)
 
         })

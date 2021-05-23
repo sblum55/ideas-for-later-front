@@ -4,7 +4,7 @@ import axios from 'axios'
 const UserContext = createContext()
 
 const UserProvider = (props) => {
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState(null)
 
     const fetchUser = () => {
         if (!localStorage.getItem('userId')) {return}
@@ -14,12 +14,12 @@ const UserProvider = (props) => {
                 Authorization: localStorage.getItem('userId')
             }
         }) .then((response) => {
-            console.log('useContext', response);
+            // console.log('useContext', response);
             setUser(response.data.user)
         })
     }
 
-    // console.log(user);
+    // console.log('user context user', user);
 
     useEffect(fetchUser, [])
 
