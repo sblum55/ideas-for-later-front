@@ -26,7 +26,7 @@ function App() {
       console.log('app.js fav idea', response);
       setIdeaFav(response.data.favIdea)
     })
-    
+
     //   const idea = []
 
     //   // for(let ideas of response.data.favIdea) {
@@ -37,7 +37,10 @@ function App() {
   }
     // fetchFavIdeas()
 
-  useEffect(fetchFavIdeas, [])
+  // useEffect(fetchFavIdeas, [])
+  useEffect(() => {
+    fetchFavIdeas()
+  }, [user])
 
   const isFav = (currentIdea) => {
     if (isFavIdea.includes(currentIdea)) {

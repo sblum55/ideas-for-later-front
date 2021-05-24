@@ -73,17 +73,19 @@ body {
 }
 
 .ideaContainer {
+  margin-left: 75px;
+  margin-right: 75px;
+  margin-top: 40px;
   border: 1px solid blue;
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-flow: row wrap;
+  /* justify-content: space-between; */
   width: 100%;
-  height: 350vh
+  height: 100%;
 }
 
 .ideaCard {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   width: 240px;
   display: flex;
   flex-direction: column;
@@ -92,7 +94,14 @@ body {
   border-radius: 8px;
 }
 
+.descriptionContainer {
+  margin-top: -10px;
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
 .ideaImg {
+  border-radius: 16px;
   width: 100%;
 }
 

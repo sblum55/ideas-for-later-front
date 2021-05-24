@@ -14,12 +14,12 @@ const UserProvider = (props) => {
                 Authorization: localStorage.getItem('userId')
             }
         }) .then((response) => {
-            // console.log('useContext', response);
+            console.log('useContext', response);
             setUser(response.data.user)
         })
     }
 
-    // console.log('user context user', user);
+    console.log('user context user', user);
 
     useEffect(fetchUser, [])
 
