@@ -1,7 +1,8 @@
 import './App.css';
 import { Route, Redirect } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { UserContext } from './contexts/UserContexts'
+import axios from 'axios'
 
 import NavBar from './components/NavBar'
 import SignUp from './pages/SignUp'
@@ -11,9 +12,46 @@ import MyIdeas from './pages/MyIdea'
 
 function App() {
   const [ user ] = useContext(UserContext)
+  const [ ideaFav, setIdeaFav ] = useState([])
+  const [ isFavIdea, setIsFaveIdea ] = useState([])
   // console.log('app.js user', user);
-  
 
+  const fetchFavIdeas = async () => {
+    try {
+
+      const results = await axios.get(`${process.env.REACT_APP_BACKEND_URL}ideas/favorite`, {
+        headers: {
+          Authorization: user
+        }
+      })
+      console.log(results);
+
+      setIdeaFav(response.data.favIdea)
+
+      const idea = []
+
+      for(let ideas of response.data.favIdea) {
+        idea.push(ideas)
+      }
+
+      setIsFaveIdea(idea)
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchFavIdeas()
+  }, [user])
+
+  const isFav = (currentIdea) => {
+    if (isFavIdea.includes(currentIdea)) {
+      return true
+    }
+
+    return false
+  }
 
   return (
     <div className="App">
@@ -47,7 +85,7 @@ function App() {
       </Route> */}
 
       <Route exact path = '/ideas'>
-        <MyIdeas />
+        <MyIdeas ideaFav = {ideaFav} isFav = {isFav}/>
       </Route>
       
     </div>
