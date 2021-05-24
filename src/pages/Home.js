@@ -1,10 +1,11 @@
 import axios from 'axios'
-import { useState, useEffect, useContext } from 'react'
+import { useState, useEffect } from 'react'
 import IdeaList from '../components/IdeaList'
 
 
 
-const Home = () => {
+const Home = (props) => {
+    // console.log(props.isFav);
     const [ideas, setIdeas] = useState([])
     // const [ fav, setFav ] = useState([])
 
@@ -21,7 +22,7 @@ const Home = () => {
 
     return (
         <div className = 'container'>
-            <IdeaList ideas = {ideas} getIdeas = {getIdeas} />
+            <IdeaList ideas = {ideas} getIdeas = {getIdeas} isFav = {props.isFav} />
         </div>
     )
 }

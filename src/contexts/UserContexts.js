@@ -6,10 +6,11 @@ const UserContext = createContext()
 const UserProvider = (props) => {
     const [user, setUser] = useState(null)
 
-    const fetchUser = () => {
+    const fetchUser = (name) => {
+        console.log(name);
         if (!localStorage.getItem('userId')) {return}
-
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}users/verify`, {
+        
+        axios.get(`${process.env.REACT_APP_BACKEND_URL}users/verify`,{
             headers: {
                 Authorization: localStorage.getItem('userId')
             }
@@ -18,8 +19,7 @@ const UserProvider = (props) => {
             setUser(response.data.user)
         })
     }
-
-    console.log('user context user', user);
+    // console.log('user context user', user);
 
     useEffect(fetchUser, [])
 

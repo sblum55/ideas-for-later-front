@@ -13,40 +13,35 @@ import MyIdeas from './pages/MyIdea'
 function App() {
   const [ user ] = useContext(UserContext)
   const [ ideaFav, setIdeaFav ] = useState([])
-  const [ isFavIdea, setIsFaveIdea ] = useState([])
   // console.log('app.js user', user);
 
-  const fetchFavIdeas = async () => {
+  const fetchFavIdeas = () => {
     axios.get(`${process.env.REACT_APP_BACKEND_URL}ideas/favorite`, {
       headers: {
         Authorization: user
       }
     })
     .then((response) => {
-      console.log('app.js fav idea', response);
+      // console.log('app.js fav idea', response);
       setIdeaFav(response.data.favIdea)
     })
-
-    //   const idea = []
-
-    //   // for(let ideas of response.data.favIdea) {
-    //   //   idea.push(ideas)
-    //   // }
-
-    //   // setIsFaveIdea(idea)
+    
   }
-    // fetchFavIdeas()
-
-  // useEffect(fetchFavIdeas, [])
+  
   useEffect(() => {
     fetchFavIdeas()
   }, [user])
 
   const isFav = (currentIdea) => {
-    if (isFavIdea.includes(currentIdea)) {
+    const index = []
+    for( let ideas of ideaFav){
+      index.push(ideas.id)
+      // console.log(ideas);
+    }
+    // console.log(index);
+    if (index.includes(currentIdea)) {
       return true
     }
-
     return false
   }
 
@@ -55,7 +50,7 @@ function App() {
       <NavBar />
 
       <Route exact path = '/'>
-        <Home />
+        <Home isFav = {isFav}  />
       </Route>
 
       <Route exact path = '/signup' render={() => {
@@ -82,7 +77,7 @@ function App() {
       </Route> */}
 
       <Route exact path = '/ideas'>
-        <MyIdeas ideaFav = {ideaFav} isFav = {isFav}/>
+        <MyIdeas ideaFav = {ideaFav} />
       </Route>
       
     </div>

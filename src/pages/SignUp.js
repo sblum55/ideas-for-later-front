@@ -13,7 +13,7 @@ const SignUp = () => {
         e.preventDefault()
         axios.post(`${process.env.REACT_APP_BACKEND_URL}users`, {name, email, password})
         .then((response) => {
-            console.log(('sign up response', response));
+            // console.log(('sign up response', response));
             setUser(response.data.user.id)
             localStorage.setItem('userId', response.data.user.id)
         })
