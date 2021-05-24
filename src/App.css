@@ -116,3 +116,7 @@ body {
   padding: 10px;
 }
 
+.favHeartOutline {
+  cursor: pointer;
+}
+

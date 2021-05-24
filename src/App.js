@@ -1,16 +1,16 @@
 import './App.css';
 import { Route, Redirect } from 'react-router-dom'
-import { useState, useEffect, useContext } from 'react'
-import axios from 'axios'
+import { useContext } from 'react'
 import { UserContext } from './contexts/UserContexts'
 
 import NavBar from './components/NavBar'
 import SignUp from './pages/SignUp'
 import Login from './pages/Login'
 import Home from './pages/Home'
+import MyIdeas from './pages/MyIdea'
 
 function App() {
-  const [ user, setUser ] = useContext(UserContext)
+  const [ user ] = useContext(UserContext)
   // console.log('app.js user', user);
   
 
@@ -45,6 +45,10 @@ function App() {
       {/* <Route exact path = '/login'>
          <Login />
       </Route> */}
+
+      <Route exact path = '/ideas'>
+        <MyIdeas />
+      </Route>
       
     </div>
   )

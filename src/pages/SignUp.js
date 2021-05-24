@@ -3,7 +3,7 @@ import { useState, useContext } from 'react'
 import { UserContext } from '../contexts/UserContexts'
 
 const SignUp = () => {
-    const [ user, setUser ] = useContext(UserContext)
+    const [ setUser ] = useContext(UserContext)
 
     const [ name, setName ] = useState('')
     const [ email, setEmail ] = useState('')
