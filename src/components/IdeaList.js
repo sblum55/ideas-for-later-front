@@ -4,6 +4,7 @@ import axios from 'axios'
 
 const IdeaList = (props) => {
     const [ user ] = useContext(UserContext)
+    console.log(user);
     // console.log(props.ideas);
     // console.log(props.fav);
     // console.log('fav props', props.favIdea);

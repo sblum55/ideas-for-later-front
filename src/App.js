@@ -17,33 +17,27 @@ function App() {
   // console.log('app.js user', user);
 
   const fetchFavIdeas = async () => {
-    try {
-
-      const results = await axios.get(`${process.env.REACT_APP_BACKEND_URL}ideas/favorite`, {
-        headers: {
-          Authorization: user
-        }
-      })
-      console.log(results);
-
-      setIdeaFav(response.data.favIdea)
-
-      const idea = []
-
-      for(let ideas of response.data.favIdea) {
-        idea.push(ideas)
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}ideas/favorite`, {
+      headers: {
+        Authorization: user
       }
+    })
+    .then((response) => {
+      console.log('app.js fav idea', response);
+      setIdeaFav(response.data.favIdea)
+    })
+    
+    //   const idea = []
 
-      setIsFaveIdea(idea)
+    //   // for(let ideas of response.data.favIdea) {
+    //   //   idea.push(ideas)
+    //   // }
 
-    } catch (error) {
-      console.log(error);
-    }
+    //   // setIsFaveIdea(idea)
   }
+    // fetchFavIdeas()
 
-  useEffect(() => {
-    fetchFavIdeas()
-  }, [user])
+  useEffect(fetchFavIdeas, [])
 
   const isFav = (currentIdea) => {
     if (isFavIdea.includes(currentIdea)) {
