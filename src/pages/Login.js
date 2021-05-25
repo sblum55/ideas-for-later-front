@@ -34,7 +34,7 @@ const Login = () => {
                     <div className = 'passwordArea'>
                         <input className = 'loginInput' placeholder = 'Password' type = 'password' id = 'new-password' value = {password} onChange = {(e) => {setPassword(e.target.value)}} />
                     </div>
-                    <div className = 'signUpBtnArea'>
+                    <div className = 'loginFormBtnArea'>
                         <input className = 'submitLoginBtn' type = 'submit' value = 'SUBMIT' />
                     </div>
                 </form>
