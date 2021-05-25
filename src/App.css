@@ -10,9 +10,8 @@ body {
   align-items: center;
   /* border: 1px solid teal; */
   justify-content: space-between;
-  margin-top: 15px;
+  margin-top: 20px;
   width: 100vw;
-
 }
 
 .homeBtnArea {
@@ -35,7 +34,7 @@ body {
   /* display: inline-block; */
   /* border: 1px solid blue; */
   /* width: fit-content; */
-  flex-grow: 3;
+  flex-grow: 11;
 }
 
 .ideaSearchBar {
@@ -54,6 +53,7 @@ body {
   flex-grow: 1;
   display: flex;
   justify-content: flex-end;
+  margin-right: 12px;
 }
 
 .signUpBtn {
@@ -158,12 +158,13 @@ body {
 .ideaImg {
   border-radius: 16px;
   width: 100%;
+  justify-content: center;
 }
 
 .loginFormContainer {
   display: flex;
   margin-top: 40px;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   justify-content: center;
   align-items: center;
 
@@ -215,6 +216,7 @@ body {
 }
 
 .signUpContainer {
+  margin-top: 40px;
   display: flex;
   justify-content: center;
   align-items: center;

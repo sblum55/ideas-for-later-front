@@ -20,7 +20,7 @@ const NavBar = (props) => {
         <div className = 'navBar'>
             <div className = 'homeBtnArea'>
                 <span className = 'homeBtn'>
-                    <Link className = 'navLinkHome' to = '/'>
+                    <Link className = 'navLinkHome' to = '/' refresh = 'true'>
                         Ideas For Later
                     </Link>
                 </span>
@@ -31,7 +31,7 @@ const NavBar = (props) => {
             {user ? <>
             <div className = 'rightNavArea'>
                 <span className = 'myIdea'>
-                    <Link className = 'navLink' to = '/ideas'>
+                    <Link className = 'navLink' to = '/ideas' refresh = 'true'>
                         My Ideas
                     </Link>
                 </span>

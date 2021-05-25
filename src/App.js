@@ -82,7 +82,7 @@ function App() {
       <NavBar currentPage = {currentPage} filterIdeas = {filterIdeas} filterFav = {filterFav} />
 
       <Route exact path = '/'>
-        <Home isFav = {isFav} setCurrentPage = {setCurrentPage} ideas = {ideas} results = {results}  />
+        <Home isFav = {isFav} setCurrentPage = {setCurrentPage} ideas = {ideas} results = {results} getIdeas = {getIdeas}  />
       </Route>
 
       <Route exact path = '/signup' render={() => {
@@ -113,7 +113,7 @@ function App() {
       </Route>
 
       <Route exact path = '/addIdea'>
-        <CreateIdea />
+        <CreateIdea fetchFavIdeas = {fetchFavIdeas} />
       </Route>
       
     </div>

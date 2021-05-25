@@ -4,9 +4,10 @@ import { UserContext } from '../contexts/UserContexts'
 import { Redirect } from 'react-router-dom'
 
 
-const CreateIdea = () => {
+const CreateIdea = (props) => {
     // const [ user, setUser ] = useContext(UserContext)
     const [user , setUser ] = useState({})
+    const [ redirect, setRedirect ] = useState(null)
     // console.log(user);
     const [image, setImage] = useState('')
     const [title, setTitle] = useState('')
@@ -25,12 +26,15 @@ const CreateIdea = () => {
         .then((response) => {
             console.log(response);
             setUser(response.data.user)
+            setRedirect('/ideas')
+            props.fetchFavIdeas()
         })
     }
 
     return (
         <div>
             <div className = 'addIdeaContainer'>
+                {redirect && <Redirect to = {redirect} />}
                 <form onSubmit = {handleSubmit}>
                     <div className = 'addIdeaTitle'>
                         <h1>Add Your Ideas!</h1>
