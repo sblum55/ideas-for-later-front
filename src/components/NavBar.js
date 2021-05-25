@@ -16,6 +16,11 @@ const NavBar = () => {
                     </Link>
                 </span>
             </div>
+            <div>
+                <span className = 'searchBarArea'>
+                    <input className = 'ideaSearchBar' aria-label = 'Search icon' type = 'Search' placeholder = 'Search' />
+                </span>
+            </div>
             {user ? <>
             <div className = 'rightNavArea'>
                 <span className = 'myIdea'>

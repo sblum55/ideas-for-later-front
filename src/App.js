@@ -9,6 +9,7 @@ import SignUp from './pages/SignUp'
 import Login from './pages/Login'
 import Home from './pages/Home'
 import MyIdeas from './pages/MyIdea'
+import CreateIdea from './pages/CreateIdea'
 
 function App() {
   const [ user ] = useContext(UserContext)
@@ -78,6 +79,10 @@ function App() {
 
       <Route exact path = '/ideas'>
         <MyIdeas ideaFav = {ideaFav} />
+      </Route>
+
+      <Route exact path = '/addIdea'>
+        <CreateIdea />
       </Route>
       
     </div>
