@@ -1,12 +1,21 @@
 import { Link } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { UserContext } from '../contexts/UserContexts'
 
-const NavBar = () => {
+const NavBar = (props) => {
     const [ user, setUser ] = useContext(UserContext)
-    // const { userState } = useContext(UserContext)
-    // const [ user, setUser] = userState
-    // console.log(user);
+    const [ searchTerm, setSearchTerm] = useState('')
+
+    const handleChange = (e) => {
+        setSearchTerm(e.target.value)
+        props.filterIdeas(e.target.value)
+    }
+
+    const handleChange2 = (e) => {
+        setSearchTerm(e.target.value)
+        props.filterFav(e.target.value)
+    }
+   
     return (
         <div className = 'navBar'>
             <div className = 'homeBtnArea'>
@@ -16,10 +25,8 @@ const NavBar = () => {
                     </Link>
                 </span>
             </div>
-            <div>
-                <span className = 'searchBarArea'>
-                    <input className = 'ideaSearchBar' aria-label = 'Search icon' type = 'Search' placeholder = 'Search' />
-                </span>
+            <div className = 'searchBarArea'>
+                    <input className = 'ideaSearchBar' aria-label = 'Search icon' type = 'Search' placeholder = 'Search' onChange = {(e)=> {props.currentPage === 'fav' ? handleChange2(e) :handleChange(e)}} />
             </div>
             {user ? <>
             <div className = 'rightNavArea'>

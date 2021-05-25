@@ -35,6 +35,7 @@ const MyIdeas = (props) => {
 
     useEffect(() => {
         fetchComplete()
+        props.setCurrentPage('fav')
     }, [user])
 
     const isComplete = (currentIdea) => {
@@ -63,7 +64,42 @@ const MyIdeas = (props) => {
                     </div>
             </div>
             <div className = 'ideaContainer'>
-                {props.ideaFav && props.ideaFav.map((idea, index) => (
+                {props.results ? 
+                    props.results && props.results.map((idea, index) => (
+                        <div key = {index} className= 'ideaCard'>
+                            <img className = 'ideaImg' src = {idea.image}></img>
+                            <div className = 'descriptionContainer'>
+                                <h3>{idea.title}</h3>
+                                <p>{idea.description}</p>
+                                {isComplete(idea.id) === true ?
+                                <span>✔</span>
+                                :
+                                <span className = 'favHeartOutline' onClick = {() => completeIdea(idea.id)}>❤️</span>
+    
+                                }
+                            </div>
+                        </div>
+                    ))
+            
+                    :
+                    props.ideaFav && props.ideaFav.map((idea, index) => (
+                        <div key = {index} className= 'ideaCard'>
+                            <img className = 'ideaImg' src = {idea.image}></img>
+                            <div className = 'descriptionContainer'>
+                                <h3>{idea.title}</h3>
+                                <p>{idea.description}</p>
+                                {isComplete(idea.id) === true ?
+                                <span>✔</span>
+                                :
+                                <span className = 'favHeartOutline' onClick = {() => completeIdea(idea.id)}>❤️</span>
+    
+                                }
+                            </div>
+                        </div>
+                    ))
+                }
+
+                {/* {props.ideaFav && props.ideaFav.map((idea, index) => (
                     <div key = {index} className= 'ideaCard'>
                         <img className = 'ideaImg' src = {idea.image}></img>
                         <div className = 'descriptionContainer'>
@@ -77,7 +113,7 @@ const MyIdeas = (props) => {
                             }
                         </div>
                     </div>
-                ))}
+                ))} */}
             </div>
         </div>
     )

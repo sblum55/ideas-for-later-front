@@ -24,7 +24,40 @@ const IdeaList = (props) => {
 
     return (
         <div className= 'ideaContainer'>
-           {props.ideas && props.ideas.map((idea, index) => (
+            {props.results ?
+                props.results && props.results.map((idea, index) => (
+                    <div  key= {index} className = 'ideaCard'>
+                     <img className = 'ideaImg' src = {idea.image}></img>
+                     <div className = 'descriptionContainer'>
+                         <h3>{idea.title}</h3>
+                         <p>{idea.description}</p>
+                         {props.isFav(idea.id) ?
+                         <span>❤️</span>
+                         :
+                         <span className = 'favHeartOutline' onClick = {() => favIdea(idea.id)}>♡</span>
+                         
+                         }
+                     </div>
+                 </div>))
+                :
+                props.ideas && props.ideas.map((idea, index) => (
+                    <div  key= {index} className = 'ideaCard'>
+                     <img className = 'ideaImg' src = {idea.image}></img>
+                     <div className = 'descriptionContainer'>
+                         <h3>{idea.title}</h3>
+                         <p>{idea.description}</p>
+                         {props.isFav(idea.id) ?
+                         <span>❤️</span>
+                         :
+                         <span className = 'favHeartOutline' onClick = {() => favIdea(idea.id)}>♡</span>
+                         
+                         }
+                     </div>
+                 </div>))
+            }
+
+
+           {/* {props.ideas && props.ideas.map((idea, index) => (
                <div  key= {index} className = 'ideaCard'>
                 <img className = 'ideaImg' src = {idea.image}></img>
                 <div className = 'descriptionContainer'>
@@ -37,7 +70,7 @@ const IdeaList = (props) => {
                     
                     }
                 </div>
-            </div>))}
+            </div>))} */}
         </div>
     )
 }

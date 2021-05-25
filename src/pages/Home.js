@@ -6,23 +6,16 @@ import IdeaList from '../components/IdeaList'
 
 const Home = (props) => {
     // console.log(props.isFav);
-    const [ideas, setIdeas] = useState([])
+    
     // const [ fav, setFav ] = useState([])
-
-    const getIdeas = () => {
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}ideas`)
-        .then((response) => {
-            // console.log('home response', response);
-            setIdeas(response.data)
-
-        })
-    }
-
-    useEffect(getIdeas, [])
+    useEffect(() => {
+        props.setCurrentPage('notFav')
+    }, [])
+    
 
     return (
         <div className = 'container'>
-            <IdeaList ideas = {ideas} getIdeas = {getIdeas} isFav = {props.isFav} />
+            <IdeaList ideas = {props.ideas} getIdeas = {props.getIdeas} isFav = {props.isFav} results = {props.results} />
         </div>
     )
 }

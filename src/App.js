@@ -14,7 +14,24 @@ import CreateIdea from './pages/CreateIdea'
 function App() {
   const [ user ] = useContext(UserContext)
   const [ ideaFav, setIdeaFav ] = useState([])
+  const [currentPage, setCurrentPage] = useState(null)
+  const [ideas, setIdeas] = useState([])
+  const [ results, setResults] = useState('')
   // console.log('app.js user', user);
+
+  const getIdeas = () => {
+    axios.get(`${process.env.REACT_APP_BACKEND_URL}ideas`)
+    .then((response) => {
+        // console.log('home response', response);
+        setIdeas(response.data)
+
+    })
+}
+
+  useEffect(() => {
+      getIdeas()
+      fetchFavIdeas()
+  }, [])
 
   const fetchFavIdeas = () => {
     axios.get(`${process.env.REACT_APP_BACKEND_URL}ideas/favorite`, {
@@ -46,12 +63,26 @@ function App() {
     return false
   }
 
+  const filterIdeas = (str) => {
+    const response = ideas.filter((idea) => {
+      return idea.title.toLowerCase().includes(str)
+    })
+    setResults(response)
+  }
+
+  const filterFav = (str) => {
+    const response = ideaFav.filter((idea) => {
+      return idea.title.toLowerCase().includes(str)
+    })
+    setResults(response)
+  }
+
   return (
     <div className="App">
-      <NavBar />
+      <NavBar currentPage = {currentPage} filterIdeas = {filterIdeas} filterFav = {filterFav} />
 
       <Route exact path = '/'>
-        <Home isFav = {isFav}  />
+        <Home isFav = {isFav} setCurrentPage = {setCurrentPage} ideas = {ideas} results = {results}  />
       </Route>
 
       <Route exact path = '/signup' render={() => {
@@ -78,7 +109,7 @@ function App() {
       </Route> */}
 
       <Route exact path = '/ideas'>
-        <MyIdeas ideaFav = {ideaFav} />
+        <MyIdeas ideaFav = {ideaFav} setCurrentPage = {setCurrentPage} results = {results} />
       </Route>
 
       <Route exact path = '/addIdea'>

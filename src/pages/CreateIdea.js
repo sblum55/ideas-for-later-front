@@ -5,13 +5,15 @@ import { Redirect } from 'react-router-dom'
 
 
 const CreateIdea = () => {
-    const [ user, setUser ] = useContext(UserContext)
-    console.log(user);
+    // const [ user, setUser ] = useContext(UserContext)
+    const [user , setUser ] = useState({})
+    // console.log(user);
     const [image, setImage] = useState('')
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
 
     const handleSubmit = (e) => {
+        const user = localStorage.getItem('userId')
         console.log('hit submit');
         e.preventDefault()
 
@@ -22,7 +24,7 @@ const CreateIdea = () => {
         })
         .then((response) => {
             console.log(response);
-            setUser(user)
+            setUser(response.data.user)
         })
     }
 
@@ -34,7 +36,7 @@ const CreateIdea = () => {
                         <h1>Add Your Ideas!</h1>
                     </div>
                     <div className = 'imageArea'>
-                        <input className = 'imageInput' placeholder = 'http://image.com' id = 'new-image' value = {image} onChange = {(e) => {setImage(e.target.value)}} />
+                        <input className = 'imageInput' placeholder = 'http://image.jpg' id = 'new-image' value = {image} onChange = {(e) => {setImage(e.target.value)}} />
                     </div>
                     <div className = 'titleArea'>
                         <input className = 'titleInput' placeholder = 'Your Idea' type = 'text' id = 'new-title' value = {title} onChange = {(e) => {setTitle(e.target.value)}} />
