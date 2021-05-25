@@ -232,6 +232,22 @@ body {
   border-radius: 16px;
 }
 
+.signUpFormBtnArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signUpFormBtn {
+  background-color: #e60023;
+  border: none;
+  border-radius: 25px;
+  padding: 15px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
 .addIdeaContainer {
   display: flex;
   justify-content: center;

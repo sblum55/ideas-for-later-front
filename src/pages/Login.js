@@ -1,9 +1,11 @@
 import axios from 'axios'
 import { useState, useContext } from 'react'
+import { Redirect } from 'react-router-dom'
 import { UserContext } from '../contexts/UserContexts'
 
 const Login = () => {
-    const [ setUser ] = useContext(UserContext)
+    const [ user, setUser ] = useContext(UserContext)
+    const [ redirect, setRedirect ] = useState(null)
 
     const [ email, setEmail ] = useState('')
     const [ password, setPassword ] = useState('')
@@ -12,14 +14,16 @@ const Login = () => {
         e.preventDefault()
         axios.post(`${process.env.REACT_APP_BACKEND_URL}users/login`, {email, password})
         .then((response) => {
-            // console.log('login response', response);
+            console.log('login response', response);
             setUser(response.data.user.id)
             localStorage.setItem('userId', response.data.user.id)
+            setRedirect('/')
         })
     }
     return (
         <div>
             <div className = 'loginFormContainer'>
+                {redirect && <Redirect to = {redirect} />}
                 <form onSubmit = {handleSubmit}>
                     <div className = 'loginTitle'>
                         <h1>Welcome to Ideas for Later!</h1>
