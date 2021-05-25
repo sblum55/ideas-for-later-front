@@ -179,3 +179,111 @@ body {
   cursor: pointer;
 }
 
+/* Forms Styling */
+
+.loginFormContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginInput {
+  width: 200px;
+  padding: 10px;
+  border-radius: 16px;
+}
+
+
+.signUpContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nameArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+
+.emailArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+
+.passwordArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+
+.signUpInput {
+  width: 200px;
+  padding: 10px;
+  border-radius: 16px;
+}
+
+.addIdeaContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+
+.imageInput {
+  width: 200px;
+  padding: 10px;
+  border-radius: 16px;
+}
+
+.titleArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+
+.titleInput {
+  width: 200px;
+  padding: 10px;
+  border-radius: 16px;
+}
+
+.descriptionArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+}
+
+.descriptionInput {
+  width: 200px;
+  padding: 10px;
+  border-radius: 16px;
+}
+
+.createBtnArea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.createBtn {
+  background-color: #e60023;
+  border: none;
+  border-radius: 25px;
+  padding: 15px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}

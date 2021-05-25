@@ -30,7 +30,7 @@ const CreateIdea = () => {
         <div>
             <div className = 'addIdeaContainer'>
                 <form onSubmit = {handleSubmit}>
-                    <div className = 'addWineTitle'>
+                    <div className = 'addIdeaTitle'>
                         <h1>Add Your Ideas!</h1>
                     </div>
                     <div className = 'imageArea'>
@@ -42,8 +42,8 @@ const CreateIdea = () => {
                     <div className = 'descriptionArea'>
                         <input className = 'descriptionInput' placeholder = 'Short Description' type = 'text' id = 'new-description' value = {description} onChange = {(e) => {setDescription(e.target.value)}} />
                     </div>
-                    <div className = 'signUpBtnArea'>
-                        <input className = 'submitLoginBtn' type = 'submit' value = 'SUBMIT' />
+                    <div className = 'createBtnArea'>
+                        <input className = 'createBtn' type = 'submit' value = 'SUBMIT' />
                     </div>
                 </form>
             </div>

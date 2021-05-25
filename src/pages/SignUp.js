@@ -20,26 +20,17 @@ const SignUp = () => {
     }
 
     return (
-        <div>
+        <div className = 'signUpContainer'>
             <h1>Access our selection of great ideas!</h1>
             <form onSubmit = {handleSubmit}>
                 <div className = 'nameArea'>
-                    <div>
-                    <label htmlFor = 'new-name'>Name </label>
-                    </div>
-                    <input className = 'signUpInput' id = 'new-name' value = {name} onChange = {(e) => {setName(e.target.value)}} />
+                    <input className = 'signUpInput' placeholder = 'Name' id = 'new-name' value = {name} onChange = {(e) => {setName(e.target.value)}} />
                 </div>
                 <div className = 'emailArea'>
-                    <div>
-                    <label htmlFor = 'new-email'>Email </label>
-                    </div>
-                    <input className = 'signUpInput' id = 'new-email' value = {email} onChange = {(e) => {setEmail(e.target.value)}} />
+                    <input className = 'signUpInput' placeholder = 'Email' id = 'new-email' value = {email} onChange = {(e) => {setEmail(e.target.value)}} />
                 </div>
                 <div className = 'passwordArea'>
-                    <div>
-                    <label htmlFor = 'new-password'>Password </label>
-                    </div>
-                    <input className = 'signUpInput' type = 'password' id = 'new-password' value = {password} onChange = {(e) => {setPassword(e.target.value)}} />
+                    <input className = 'signUpInput' placeholder = 'Password' type = 'password' id = 'new-password' value = {password} onChange = {(e) => {setPassword(e.target.value)}} />
                 </div>
                 <div className = 'signUpBtnArea'>
                     <input className = 'signUpBtn' type = 'submit' value = 'SUBMIT' />
