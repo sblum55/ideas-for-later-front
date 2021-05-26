@@ -152,10 +152,19 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 30px;
-  background-color: transparent;
+  /* background-color: transparent; */
+  background-color: #e60023;
+  color: white;
+  border: none;
   border-radius: 50%;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.addIdeaBtn:hover {
+  background-color: #880216;
+  color: white;
+  border: none;
 }
 
 .myIdeasTitle {

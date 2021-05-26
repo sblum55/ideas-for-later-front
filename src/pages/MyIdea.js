@@ -98,22 +98,6 @@ const MyIdeas = (props) => {
                         </div>
                     ))
                 }
-
-                {/* {props.ideaFav && props.ideaFav.map((idea, index) => (
-                    <div key = {index} className= 'ideaCard'>
-                        <img className = 'ideaImg' src = {idea.image}></img>
-                        <div className = 'descriptionContainer'>
-                            <h3>{idea.title}</h3>
-                            <p>{idea.description}</p>
-                            {isComplete(idea.id) === true ?
-                            <span>✔</span>
-                            :
-                            <span className = 'favHeartOutline' onClick = {() => completeIdea(idea.id)}>❤️</span>
-
-                            }
-                        </div>
-                    </div>
-                ))} */}
             </div>
         </div>
     )
