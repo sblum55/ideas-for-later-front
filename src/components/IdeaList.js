@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const IdeaList = (props) => {
     const [ user ] = useContext(UserContext)
-    console.log('idea list', user);
+    // console.log('idea list', user);
     // console.log(props.ideas);
     // console.log(props.fav);
     // console.log('fav props', props.favIdea);
@@ -19,6 +19,10 @@ const IdeaList = (props) => {
         .then((response) => {
             // console.log('post response home', response);
             props.getIdeas()
+            return(response)
+        })
+        .then((response) => {
+            props.updateAll()
         })
     }
 
@@ -34,7 +38,7 @@ const IdeaList = (props) => {
                          {props.isFav(idea.id) ?
                          <span>❤️</span>
                          :
-                         <span className = 'favHeartOutline' onClick = {() => favIdea(idea.id)}>♡</span>
+                         <span className = 'favHeartOutline' onClick = {() => {favIdea(idea.id); props.updateAll()}}>♡</span>
                          
                          }
                      </div>
@@ -49,7 +53,7 @@ const IdeaList = (props) => {
                          {props.isFav(idea.id) ?
                          <span>❤️</span>
                          :
-                         <span className = 'favHeartOutline' onClick = {() => favIdea(idea.id)}>♡</span>
+                         <span className = 'favHeartOutline' onClick = {() => {favIdea(idea.id); props.updateAll()}}>♡</span>
                          
                          }
                      </div>

@@ -26,7 +26,7 @@ function App() {
         setIdeas(response.data)
 
     })
-}
+  }
 
   useEffect(() => {
       getIdeas()
@@ -77,12 +77,18 @@ function App() {
     setResults(response)
   }
 
+  const updateAll = () => {
+    console.log('updated');
+    getIdeas()
+    fetchFavIdeas()
+  }
+
   return (
     <div className="App">
-      <NavBar currentPage = {currentPage} filterIdeas = {filterIdeas} filterFav = {filterFav} />
+      <NavBar currentPage = {currentPage} filterIdeas = {filterIdeas} filterFav = {filterFav} updateAll = {updateAll} />
 
       <Route exact path = '/'>
-        <Home isFav = {isFav} setCurrentPage = {setCurrentPage} ideas = {ideas} results = {results} getIdeas = {getIdeas}  />
+        <Home isFav = {isFav} setCurrentPage = {setCurrentPage} ideas = {ideas} results = {results} getIdeas = {getIdeas} updateAll = {updateAll}  />
       </Route>
 
       <Route exact path = '/signup' render={() => {
@@ -109,7 +115,7 @@ function App() {
       </Route> */}
 
       <Route exact path = '/ideas'>
-        <MyIdeas ideaFav = {ideaFav} setCurrentPage = {setCurrentPage} results = {results} />
+        <MyIdeas ideaFav = {ideaFav} setCurrentPage = {setCurrentPage} results = {results} updateAll = {updateAll} />
       </Route>
 
       <Route exact path = '/addIdea'>

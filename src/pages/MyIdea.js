@@ -8,17 +8,7 @@ const MyIdeas = (props) => {
     const [ user ] = useContext(UserContext)
     const [ complete, setComplete ] = useState([])
 
-    const completeIdea = (ideaId) => {
-        // console.log(id);
-        axios.put(`${process.env.REACT_APP_BACKEND_URL}ideas/favorite/${ideaId}`, {completed: true}, {
-            headers: {
-                Authorization: user
-            }
-        })
-        .then((response) => {
-            console.log('complete idea', response);
-        })
-    }
+    
 
     const fetchComplete = () => {
         // console.log(ideaId);
@@ -30,7 +20,25 @@ const MyIdeas = (props) => {
           .then((response) => {
             console.log('fetchComplete', response);
             setComplete(response.data.findInfo)
+            return(response)
           })
+    }
+
+    const completeIdea = (ideaId) => {
+        // console.log(id);
+        axios.put(`${process.env.REACT_APP_BACKEND_URL}ideas/favorite/${ideaId}`, {completed: true}, {
+            headers: {
+                Authorization: user
+            }
+        })
+        .then((response) => {
+            console.log('complete idea', response);
+            return(response)
+        })
+        .then((response) => {
+            props.updateAll()
+            fetchComplete()
+        })
     }
 
     useEffect(() => {
@@ -45,7 +53,7 @@ const MyIdeas = (props) => {
             console.log('complete array', completes);
         }
 
-        console.log(index);
+        // console.log(index);
 
         if (index.includes(currentIdea)) {
             return true
@@ -74,7 +82,7 @@ const MyIdeas = (props) => {
                                 {isComplete(idea.id) === true ?
                                 <span>✔</span>
                                 :
-                                <span className = 'favHeartOutline' onClick = {() => completeIdea(idea.id)}>❤️</span>
+                                <span className = 'favHeartOutline' onClick = {() => {completeIdea(idea.id); props.updateAll()}}>❤️</span>
     
                                 }
                             </div>
@@ -91,7 +99,7 @@ const MyIdeas = (props) => {
                                 {isComplete(idea.id) === true ?
                                 <span>✔</span>
                                 :
-                                <span className = 'favHeartOutline' onClick = {() => completeIdea(idea.id)}>❤️</span>
+                                <span className = 'favHeartOutline' onClick = {() => {completeIdea(idea.id); props.updateAll()}}>❤️</span>
     
                                 }
                             </div>

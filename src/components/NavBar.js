@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useContext, useState } from 'react'
 import { UserContext } from '../contexts/UserContexts'
+import { Redirect } from 'react-router-dom'
 
 const NavBar = (props) => {
     const [ user, setUser ] = useContext(UserContext)
@@ -14,6 +15,13 @@ const NavBar = (props) => {
     const handleChange2 = (e) => {
         setSearchTerm(e.target.value)
         props.filterFav(e.target.value)
+    }
+
+    const logout = async () => {
+        localStorage.removeItem('userId')
+        setUser(null)
+        props.updateAll()
+        window.location.reload()
     }
    
     return (
@@ -37,8 +45,7 @@ const NavBar = (props) => {
                 </span>
                 <span className = 'logOutBtn'>
                 <span className = 'logOut' onClick = {() => {
-                    localStorage.removeItem('userId')
-                    setUser(null)
+                    logout()
                 }}>Logout</span>
                 </span>
             </div>
@@ -58,7 +65,6 @@ const NavBar = (props) => {
                  </span>
              </div>
              </>
-            
          }
         </div>
     )

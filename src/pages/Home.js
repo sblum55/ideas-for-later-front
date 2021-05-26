@@ -15,7 +15,7 @@ const Home = (props) => {
 
     return (
         <div className = 'container'>
-            <IdeaList ideas = {props.ideas} getIdeas = {props.getIdeas} isFav = {props.isFav} results = {props.results} />
+            <IdeaList ideas = {props.ideas} getIdeas = {props.getIdeas} isFav = {props.isFav} results = {props.results} updateAll = {props.updateAll} />
         </div>
     )
 }
