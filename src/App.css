@@ -42,8 +42,6 @@ body {
   padding: 8px;
   border-radius: 60px;
 
-  /* border: 1px solid green; */
-
 }
 
 .navLinkHome:hover {
@@ -161,7 +159,7 @@ body {
 }
 
 .myIdeasTitle {
-  margin-top: 75px;
+  margin-top: 100px;
   text-align: center;
 }
 
@@ -259,6 +257,10 @@ body {
   font-weight: bold;
 }
 
+.submitLoginBtn:hover {
+  background-color: #880216;
+}
+
 .signUpContainer {
   margin-top: 100px;
   display: flex;
@@ -309,7 +311,12 @@ body {
   font-weight: bold;
 }
 
+.signUpFormBtn:hover {
+  background-color: #880216;
+}
+
 .addIdeaContainer {
+  margin-top: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -368,4 +375,8 @@ body {
   cursor: pointer;
   color: white;
   font-weight: bold;
+}
+
+.createBtn:hover {
+  background-color: #880216;
 }
