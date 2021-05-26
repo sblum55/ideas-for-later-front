@@ -3,7 +3,7 @@ import { useState, useContext } from 'react'
 import { Redirect } from 'react-router-dom'
 import { UserContext } from '../contexts/UserContexts'
 
-const Login = () => {
+const Login = (props) => {
     const [ user, setUser ] = useContext(UserContext)
     const [ redirect, setRedirect ] = useState(null)
 
@@ -18,6 +18,7 @@ const Login = () => {
             setUser(response.data.user.id)
             localStorage.setItem('userId', response.data.user.id)
             setRedirect('/')
+            props.getIdeas()
         })
     }
     return (

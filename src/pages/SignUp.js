@@ -1,9 +1,11 @@
 import axios from 'axios'
 import { useState, useContext } from 'react'
+import { Redirect } from 'react-router-dom'
 import { UserContext } from '../contexts/UserContexts'
 
-const SignUp = () => {
+const SignUp = (props) => {
     const [ user, setUser ] = useContext(UserContext)
+    const [ redirect, setRedirect ] = useState(null)
 
     const [ name, setName ] = useState('')
     const [ email, setEmail ] = useState('')
@@ -16,11 +18,14 @@ const SignUp = () => {
             console.log(('sign up response', response));
             setUser(response.data.user.id)
             localStorage.setItem('userId', response.data.user.id)
+            setRedirect('/')
+            props.getIdeas()
         })
     }
 
     return (
         <div className = 'signUpContainer'>
+            {redirect && <Redirect to = {redirect} />}
             <form onSubmit = {handleSubmit}>
                 <h1>Access our selection of great ideas!</h1>
                 <div className = 'nameArea'>

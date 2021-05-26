@@ -200,9 +200,20 @@ body {
   justify-content: center;
 }
 
+.favHeartOutline {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.favHeartOutline:hover {
+  font-size: 25px;
+}
+
+/* Forms Styling */
+
 .loginFormContainer {
   display: flex;
-  margin-top: 40px;
+  margin-top: 100px;
   /* border: 1px solid green; */
   justify-content: center;
   align-items: center;
@@ -219,17 +230,6 @@ body {
   margin-bottom: 20px;
   padding: 10px;
 }
-
-.favHeartOutline {
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.favHeartOutline:hover {
-  font-size: 25px;
-}
-
-/* Forms Styling */
 
 .loginFormContainer {
   display: flex;
@@ -260,7 +260,7 @@ body {
 }
 
 .signUpContainer {
-  margin-top: 40px;
+  margin-top: 100px;
   display: flex;
   justify-content: center;
   align-items: center;

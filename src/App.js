@@ -89,7 +89,7 @@ function App() {
         if (user) {
           return <Redirect to = '/'/>
         } else {
-          return<SignUp />
+          return<SignUp getIdeas = {getIdeas} />
         }
       }} />
 
@@ -101,7 +101,7 @@ function App() {
         if (user) {
           return <Redirect to = '/'/>
         } else {
-          return <Login />
+          return <Login getIdeas = {getIdeas} />
         }
       }} />
       {/* <Route exact path = '/login'>
