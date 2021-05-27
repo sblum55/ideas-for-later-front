@@ -8,8 +8,7 @@ const MyIdeas = (props) => {
     const [ user ] = useContext(UserContext)
     const [ complete, setComplete ] = useState([])
 
-    
-
+    // Get all ideas that were marked as completed by user
     const fetchComplete = () => {
         // console.log(ideaId);
         axios.get(`${process.env.REACT_APP_BACKEND_URL}ideas/favorite/complete`, {
@@ -24,6 +23,7 @@ const MyIdeas = (props) => {
           })
     }
 
+    //Function enable user to mark ideas as completed
     const completeIdea = (ideaId) => {
         // console.log(id);
         axios.put(`${process.env.REACT_APP_BACKEND_URL}ideas/favorite/${ideaId}`, {completed: true}, {
@@ -46,6 +46,7 @@ const MyIdeas = (props) => {
         props.setCurrentPage('fav')
     }, [user])
 
+    // maps thru array and checks if idea is completed to populate change
     const isComplete = (currentIdea) => {
         const index = []
         for ( let completes of complete){
@@ -82,13 +83,12 @@ const MyIdeas = (props) => {
                                 {isComplete(idea.id) === true ?
                                 <span>✔</span>
                                 :
-                                <span className = 'favHeartOutline' onClick = {() => {completeIdea(idea.id); props.updateAll()}}>❤️</span>
+                                <span className = 'filledHeart' onClick = {() => {completeIdea(idea.id); props.updateAll()}}>❤️</span>
     
                                 }
                             </div>
                         </div>
                     ))
-            
                     :
                     props.ideaFav && props.ideaFav.map((idea, index) => (
                         <div key = {index} className= 'ideaCard'>
@@ -99,7 +99,7 @@ const MyIdeas = (props) => {
                                 {isComplete(idea.id) === true ?
                                 <span>✔</span>
                                 :
-                                <span className = 'favHeartOutline' onClick = {() => {completeIdea(idea.id); props.updateAll()}}>❤️</span>
+                                <span className = 'filledHeart' onClick = {() => {completeIdea(idea.id); props.updateAll()}}>❤️</span>
     
                                 }
                             </div>

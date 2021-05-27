@@ -11,6 +11,7 @@ const SignUp = (props) => {
     const [ email, setEmail ] = useState('')
     const [ password, setPassword ] = useState('')
 
+    //Handle submit & post request for user to sign up.
     const handleSubmit = (e) => {
         e.preventDefault()
         axios.post(`${process.env.REACT_APP_BACKEND_URL}users`, {name, email, password})

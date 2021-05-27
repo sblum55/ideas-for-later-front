@@ -8,6 +8,8 @@ const Home = (props) => {
     // console.log(props.isFav);
     
     // const [ fav, setFav ] = useState([])
+
+    // sets page state so navbar knows what page it is searching on
     useEffect(() => {
         props.setCurrentPage('notFav')
     }, [])

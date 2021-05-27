@@ -7,16 +7,19 @@ const NavBar = (props) => {
     const [ user, setUser ] = useContext(UserContext)
     const [ searchTerm, setSearchTerm] = useState('')
 
+    //filter for main ideas page
     const handleChange = (e) => {
         setSearchTerm(e.target.value)
         props.filterIdeas(e.target.value)
     }
 
+    //filter for favIdeas page
     const handleChange2 = (e) => {
         setSearchTerm(e.target.value)
         props.filterFav(e.target.value)
     }
 
+    //Enable page to reload with logged out state data(no fav'd ideas)
     const logout = async () => {
         localStorage.removeItem('userId')
         setUser(null)

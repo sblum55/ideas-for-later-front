@@ -9,6 +9,7 @@ const IdeaList = (props) => {
     // console.log(props.fav);
     // console.log('fav props', props.favIdea);
 
+    // Allows user to favorite an idea
     const favIdea = (id) => {
         // console.log(id);
         axios.post(`${process.env.REACT_APP_BACKEND_URL}ideas/favorite`, {id: id}, {
@@ -36,7 +37,7 @@ const IdeaList = (props) => {
                          <h3>{idea.title}</h3>
                          <p>{idea.description}</p>
                          {props.isFav(idea.id) ?
-                         <span>❤️</span>
+                         <span className = 'filledHeart'>❤️</span>
                          :
                          <span className = 'favHeartOutline' onClick = {() => {favIdea(idea.id); props.updateAll()}}>♡</span>
                          
@@ -51,7 +52,7 @@ const IdeaList = (props) => {
                          <h3>{idea.title}</h3>
                          <p>{idea.description}</p>
                          {props.isFav(idea.id) ?
-                         <span>❤️</span>
+                         <span className = 'filledHeart'>❤️</span>
                          :
                          <span className = 'favHeartOutline' onClick = {() => {favIdea(idea.id); props.updateAll()}}>♡</span>
                          
@@ -59,22 +60,6 @@ const IdeaList = (props) => {
                      </div>
                  </div>))
             }
-
-
-           {/* {props.ideas && props.ideas.map((idea, index) => (
-               <div  key= {index} className = 'ideaCard'>
-                <img className = 'ideaImg' src = {idea.image}></img>
-                <div className = 'descriptionContainer'>
-                    <h3>{idea.title}</h3>
-                    <p>{idea.description}</p>
-                    {props.isFav(idea.id) ?
-                    <span>❤️</span>
-                    :
-                    <span className = 'favHeartOutline' onClick = {() => favIdea(idea.id)}>♡</span>
-                    
-                    }
-                </div>
-            </div>))} */}
         </div>
     )
 }

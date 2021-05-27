@@ -19,6 +19,7 @@ function App() {
   const [ results, setResults] = useState('')
   // console.log('app.js user', user);
 
+  //Get all ideas for the public page or home page
   const getIdeas = () => {
     axios.get(`${process.env.REACT_APP_BACKEND_URL}ideas`)
     .then((response) => {
@@ -33,6 +34,7 @@ function App() {
       fetchFavIdeas()
   }, [])
 
+  // Get all of a users favorite ideas
   const fetchFavIdeas = () => {
     axios.get(`${process.env.REACT_APP_BACKEND_URL}ideas/favorite`, {
       headers: {
@@ -50,6 +52,7 @@ function App() {
     fetchFavIdeas()
   }, [user])
 
+  //Loop thru fav ideas to see if faved or not (will show if not fav'd)
   const isFav = (currentIdea) => {
     const index = []
     for( let ideas of ideaFav){
@@ -63,6 +66,7 @@ function App() {
     return false
   }
 
+  //Filter all ideas on homepage from navbar search (aka search them)
   const filterIdeas = (str) => {
     const response = ideas.filter((idea) => {
       return idea.title.toLowerCase().includes(str)
@@ -70,6 +74,7 @@ function App() {
     setResults(response)
   }
 
+  // Filter through favorited ideas (aka search them)
   const filterFav = (str) => {
     const response = ideaFav.filter((idea) => {
       return idea.title.toLowerCase().includes(str)
@@ -77,6 +82,7 @@ function App() {
     setResults(response)
   }
 
+  //Function to update all the data when change is made
   const updateAll = () => {
     console.log('updated');
     getIdeas()

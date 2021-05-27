@@ -13,6 +13,7 @@ const CreateIdea = (props) => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
 
+    // Handle submit for when user submits form to create a new idea
     const handleSubmit = (e) => {
         const user = localStorage.getItem('userId')
         console.log('hit submit');
