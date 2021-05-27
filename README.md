@@ -6,15 +6,14 @@ Ideas for later will let users save picture ideas for projects, recipes, diy and
 ## User Stories:
 * When page loads the user will see a gallery of photos, the public board.
 * User can search public board for ideas
-* If the user clicks on a photo in the logged out state they will be directed to log in or sign up.
+* If the user is logged out they won't be able to save an idea, the heart will stay outlined
 * In logged out state the top navigation bar the user will see log-in, sign-up and home.
 * When the user either log's in or sign's up they will then see on the top navigation bar logout, your ideas and home.
-* When the user clicks on a photo they will be able to save it to their idea board.
+* When the user clicks on a outlined heart they will be able to save it to their idea board & heart will change to red.
 * When the user clicks on My Ideas the will be directed to page with all their saved ideas.
 * In the my ideas section they will see saved incomplete ideas and saved complete ideas.
-* The user also has the option to upload their own photos to save to a public board or the main homescreen.
 * In the my ideas area the user can search through their photos to find the idea they are looking for.
-* After the user completes or does an idea they can then save it the completed section of their board.
+* After the user completes or does an idea they can mark it as complete on their board.
 
 ## Wireframes:
 #### Home - logged out
@@ -47,10 +46,11 @@ GET  | /verify | grab user from db
 VERB | PATH | SUMMARY
 -----|------|--------
 GET  | /ideas | get all ideas
-POST | /idea | create a new idea
-POST | /ideas/:id | add idea to board
-GET  | /ideas/:id | get all user ideas
-POST | /ideas/id/complete | set idea to complete board
+GET | /ideas/favorite | get faovrited ideas
+GET | /ideas/favorite/complete | get users completed ideas
+POST | /ideas/favorite| favorite an idea from public board
+POST | /ideas/create | create a new idea
+PUT  | /ideas/favorite/:ideaId | change fav idea to complete
 
 ## Technologies:
 * React
@@ -112,11 +112,10 @@ POST | /ideas/id/complete | set idea to complete board
 1. When logged in user can save photos to board
 1. Logged in user can also go to saved idea board
 1. Idea board will show all incomplete and completed ideas
-1. In idea board user can move completed ideas to completed section
+1. In idea board user can mark ideas as completed
 1. Also, while logged in user can add new idea to public board
-1. User is allowed to upload photo
 1. The new idea will show up at the top the public board
-1. User can search public idea board for ideas
+1. User can search public idea board/ my idea board for ideas
 
 ## Stretch Goals:
 1. User can seperate ideas into different sections(predetermined sections)
